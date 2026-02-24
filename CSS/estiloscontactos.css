@@ -1,0 +1,1037 @@
+/* ====================== VARIABLES Y ESTILOS BASE MEJORADOS ====================== */
+/* Sección que contiene las variables CSS personalizadas y estilos base */
+
+:root {
+  /* Variables de color */
+  --primary-color: #3a607a; /* Color azul principal para la interfaz */
+  --primary-hover: #2980b9; /* Versión más oscura para estados hover */
+  --secondary-color: #2387a0; /* Color verde para acciones secundarias */
+  --secondary-hover: #2980b9; /* Versión hover del color secundario */
+  --dark-color: #9fc1e2; /* Azul claro para fondos */
+  --darker-color: #1a252f; /* Azul muy oscuro para cabeceras/pies */
+  --light-color: #ecf0f1; /* Gris claro */
+  --lighter-color: #f8f9fa; /* Gris muy claro para fondo principal */
+  --accent-color: #e74c3c; /* Rojo para elementos destacados */
+  --accent-hover: #c0392b; /* Versión hover del color de acento */
+  --text-dark: #2d3436; /* Color de texto oscuro */
+  --text-medium: #636e72; /* Color de texto medio */
+  --text-light: #f5f6fa; /* Color de texto claro */
+  
+  /* Variables de sombras */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra pequeña */
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra media */
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra grande */
+  
+  /* Variables de transición */
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1); /* Transición con efecto elástico */
+  --border-radius: 12px; /* Radio de borde estándar */
+}
+
+/* Reset básico para todos los elementos */
+* {
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina padding por defecto */
+  box-sizing: border-box; /* Modelo de caja que incluye padding y border en el ancho/alto */
+}
+
+/* Estilos base para el elemento html */
+html {
+  scroll-behavior: smooth; /* Desplazamiento suave al hacer scroll */
+  font-size: 16px; /* Tamaño base de fuente */
+}
+
+/* Estilos base para el cuerpo del documento */
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* Fuente principal con fallbacks */
+  background-color: var(--lighter-color); /* Color de fondo claro */
+  color: var(--text-dark); /* Color de texto oscuro */
+  line-height: 1.7; /* Interlineado amplio para mejor legibilidad */
+  overflow-x: hidden; /* Oculta el scroll horizontal */
+  min-height: 100vh; /* Altura mínima de la ventana visible */
+  display: flex; /* Modelo de caja flexible */
+  flex-direction: column; /* Dirección de columna para el layout */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave para cambios de color */
+}
+
+/* ====================== MODO OSCURO ====================== */
+/* Estilos específicos para el modo oscuro */
+
+body.dark-mode {
+  background-color: #121212; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+body.dark-mode .header {
+  background: linear-gradient(145deg, #121212, #1a1a1a); /* Gradiente oscuro para el encabezado */
+}
+
+body.dark-mode .footer {
+  background: linear-gradient(145deg, #121212, #1a1a1a); /* Gradiente oscuro para el pie de página */
+}
+
+/* ====================== ENCABEZADO REORGANIZADO ====================== */
+/* Estilos para la sección de encabezado */
+
+.header {
+  background: linear-gradient(145deg, var(--dark-color), var(--darker-color)); /* Gradiente azul */
+  color: var(--text-light); /* Texto claro */
+  padding: 1.5rem 1rem; /* Espaciado interno */
+  text-align: center; /* Alineación de texto centrada */
+  position: relative; /* Posicionamiento relativo para elementos hijos */
+  overflow: hidden; /* Oculta contenido que sobresale */
+  box-shadow: var(--shadow-md); /* Sombra media */
+  border-bottom: 3px solid var(--secondary-color); /* Borde inferior verde */
+  display: flex; /* Modelo flexible */
+  flex-direction: column; /* Dirección de columna */
+  align-items: center; /* Centrado horizontal */
+}
+
+/* 
+ * Pseudoelemento que crea una línea gradiente decorativa bajo el header
+ * Esta línea usa un gradiente horizontal que va de azul (#3498db) a verde (#2ecc71)
+ */
+header::after {
+  content: '';                    /* Contenido vacío necesario para pseudoelementos */
+  position: absolute;             /* Posicionamiento absoluto respecto al header */
+  bottom: 0;                      /* Alineado en la parte inferior del header */
+  left: 0;                        /* Comienza desde el borde izquierdo */
+  width: 100%;                    /* Ocupa todo el ancho del header */
+  height: 3px;                    /* Grosor de la línea */
+  background: linear-gradient(90deg, #3498db, #2ecc71); /* Gradiente horizontal azul a verde */
+  background-size: 200% auto;      /* Tamaño del gradiente para permitir animación */
+  z-index: 1;                     /* Se coloca por encima del fondo pero bajo el contenido */
+ animation: gradientFlow 8s ease infinite alternate; /* Aplicamos la animación */  /* Degradado */
+}
+
+/* 
+ * Animación para el efecto de flujo del gradiente
+ * Crea un efecto dinámico que cambia la posición del gradiente
+ */
+@keyframes gradientFlow {
+  0% {
+    background-position: left;    /* Posición inicial del gradiente a la izquierda */
+  }
+  50% {
+    background-position: center;  /* Posición intermedia del gradiente al centro */
+    }
+  100% {
+    background-position: right;   /* Posición final del gradiente a la derecha */
+  }
+}
+
+/* Pseudoelemento para efecto visual en el encabezado */
+.header::before {
+  content: ''; /* Contenido vacío */
+  position: absolute; /* Posicionamiento absoluto */
+  top: -50%; /* Posición desde arriba */
+  left: -50%; /* Posición desde la izquierda */
+  width: 200%; /* Ancho ampliado */
+  height: 200%; /* Alto ampliado */
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); /* Gradiente radial */
+  animation: pulse 15s infinite linear; /* Animación continua */
+}
+
+/* Animación de rotación para el efecto del encabezado */
+@keyframes pulse {
+  0% { transform: rotate(0deg); } /* Estado inicial */
+  100% { transform: rotate(360deg); } /* Rotación completa */
+}
+
+/* Contenedor del contenido del encabezado */
+.header__content {
+  position: relative; /* Posicionamiento relativo */
+  z-index: 2; /* Nivel de apilamiento */
+  max-width: 1200px; /* Ancho máximo */
+  width: 100%; /* Ancho completo */
+  display: flex; /* Modelo flexible */
+  flex-direction: column; /* Dirección de columna */
+  align-items: center; /* Centrado horizontal */
+  order: 1; /* Orden de visualización */
+}
+
+/* ====================== NAVEGACIÓN POSICIONADA DEBAJO DEL TÍTULO ====================== */
+/* Estilos para la barra de navegación */
+
+.header__nav {
+  width: 100%; /* Ancho completo */
+  margin: 1.5rem 0; /* Margen vertical */
+  position: relative; /* Posicionamiento relativo */
+  z-index: 5; /* Nivel de apilamiento */
+  order: 2; /* Orden de visualización */
+}
+
+/* Lista de elementos de navegación */
+.nav__list {
+  display: flex; /* Modelo flexible */
+  justify-content: center; /* Centrado horizontal */
+  gap: 1.5rem; /* Espacio entre elementos */
+  list-style: none; /* Sin viñetas */
+  padding: 0; /* Sin padding */
+  margin: 0; /* Sin margen */
+  flex-wrap: wrap; /* Permite envolver elementos */
+}
+
+/* Estilos para los enlaces de navegación */
+.nav__link {
+  color: var(--text-light); /* Color de texto claro */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: 500; /* Grosor de fuente */
+  font-size: 1rem; /* Tamaño de fuente */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  border-radius: 50px; /* Bordes redondeados */
+  transition: var(--transition); /* Transición suave */
+  position: relative; /* Posicionamiento relativo */
+  display: inline-block; /* Modelo de caja inline-block */
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde semitransparente */
+}
+
+/* Efecto hover para enlaces de navegación */
+.nav__link:hover {
+  background-color: var(--secondary-color); /* Fondo verde */
+  transform: translateY(-2px); /* Efecto de levitación */
+  box-shadow: var(--shadow-sm); /* Sombra pequeña */
+  color: white; /* Color de texto blanco */
+}
+
+/* Pseudoelemento para efecto de subrayado */
+.nav__link::after {
+  content: ''; /* Contenido vacío */
+  position: absolute; /* Posicionamiento absoluto */
+  bottom: -3px; /* Posición desde abajo */
+  left: 50%; /* Centrado horizontal */
+  transform: translateX(-50%); /* Centrado preciso */
+  width: 0; /* Ancho inicial cero */
+  height: 2px; /* Altura del subrayado */
+  background: var(--secondary-color); /* Color verde */
+  transition: var(--transition); /* Transición suave */
+}
+
+/* Efecto hover para el pseudoelemento */
+.nav__link:hover::after {
+  width: 70%; /* Ancho al hacer hover */
+}
+
+/* Modo oscuro para los enlaces de navegación */
+body.dark-mode .nav__link {
+  background-color: rgba(255, 255, 255, 0.05); /* Fondo más oscuro */
+  color: rgba(255, 255, 255, 0.9); /* Color de texto */
+}
+
+body.dark-mode .nav__link:hover {
+  background-color: var(--secondary-hover); /* Fondo verde oscuro */
+}
+
+/* ====================== CONTROLES HEADER (POSICIÓN ABSOLUTA) ====================== */
+/* Estilos para los controles del encabezado */
+
+.header__controls {
+  position: absolute; /* Posicionamiento absoluto */
+  top: 1rem; /* Posición desde arriba */
+  right: 1rem; /* Posición desde la derecha */
+  display: flex; /* Modelo flexible */
+  gap: 0.75rem; /* Espacio entre elementos */
+  z-index: 10; /* Alto nivel de apilamiento */
+  align-items: center; /* Centrado vertical */
+  order: 0; /* Orden de visualización */
+}
+
+/* Estilos para el título del encabezado */
+.header__title {
+  margin: 0; /* Sin margen */
+  font-size: clamp(1.8rem, 5vw, 2.5rem); /* Tamaño responsive */
+  font-weight: 800; /* Grosor de fuente */
+  letter-spacing: -0.03em; /* Espaciado entre letras */
+  background: linear-gradient(90deg, var(--text-light), #dfe6e9); /* Gradiente de texto */
+  -webkit-background-clip: text; /* Compatibilidad con WebKit */
+  background-clip: text; /* Recorte de fondo para texto */
+  color: transparent; /* Texto transparente */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+  line-height: 1.2; /* Interlineado */
+  margin-bottom: 0.5rem; /* Margen inferior */
+}
+
+/* Estilos para el subtítulo del encabezado */
+.header__subtitle {
+  font-size: 0.9rem; /* Tamaño de fuente */
+  opacity: 0.9; /* Ligera transparencia */
+  font-weight: 400; /* Grosor normal */
+  max-width: 700px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado */
+}
+
+/* ====================== BOTONES DE TEMA Y TRADUCCIÓN ====================== */
+/* Estilos para el botón de cambio de tema */
+
+.theme-toggle {
+  background-color: #3498db; /* Fondo azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  width: 32px; /* Ancho fijo */
+  height: 32px; /* Alto fijo */
+  border-radius: 50%; /* Forma circular */
+  cursor: pointer; /* Cursor pointer */
+  font-size: 0.9rem; /* Tamaño de fuente */
+  display: flex; /* Modelo flexible */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  transition: var(--transition); /* Transición suave */
+  box-shadow: var(--shadow-sm); /* Sombra pequeña */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  order: 2; /* Orden de visualización */
+}
+
+/* Efecto hover para el botón de tema */
+.theme-toggle:hover {
+  background-color: #2980b9; /* Fondo azul oscuro */
+  transform: scale(1.1); /* Efecto de escala */
+}
+
+/* Contenedor del widget de traducción */
+#google_translate_element {
+  display: flex; /* Modelo flexible */
+  order: 1; /* Orden de visualización */
+}
+
+/* Estilos para el widget de Google Translate */
+.goog-te-gadget {
+  color: transparent !important; /* Texto transparente */
+  font-size: 0 !important; /* Tamaño de fuente cero */
+}
+
+.goog-te-gadget-simple {
+  background-color: #3498db !important; /* Fondo azul */
+  border: none !important; /* Sin borde */
+  padding: 6px !important; /* Espaciado interno */
+  border-radius: 50px !important; /* Bordes redondeados */
+  height: auto !important; /* Altura automática */
+  display: flex !important; /* Modelo flexible */
+  align-items: center !important; /* Centrado vertical */
+  transition: var(--transition) !important; /* Transición suave */
+  box-shadow: var(--shadow-sm); /* Sombra pequeña */
+}
+
+/* Efecto hover para el widget */
+.goog-te-gadget-simple:hover {
+  background-color: #2980b9 !important; /* Fondo azul oscuro */
+  box-shadow: var(--shadow-md); /* Sombra media */
+  transform: translateY(-2px); /* Efecto de levitación */
+}
+
+/* Ocultar elementos no deseados del widget */
+.goog-te-gadget-icon,
+.goog-te-gadget-simple img,
+.goog-te-gadget-simple span,
+.goog-te-menu-value span:first-child {
+  display: none !important; /* Ocultar elementos */
+}
+
+/* Estilo personalizado para el widget */
+.goog-te-gadget-simple:after {
+  content: "🌐" !important; /* Icono de globo */
+  color: var(--darker-color) !important; /* Color de texto */
+  font-family: 'Poppins', sans-serif !important; /* Fuente */
+  font-size: 0.85rem !important; /* Tamaño de fuente */
+  font-weight: 500 !important; /* Grosor de fuente */
+}
+
+/* Estilos para el menú desplegable */
+.goog-te-menu-frame {
+  box-shadow: var(--shadow-md) !important; /* Sombra media */
+  border-radius: var(--border-radius) !important; /* Bordes redondeados */
+  margin-top: 5px !important; /* Margen superior */
+  max-width: 200px !important; /* Ancho máximo */
+  border: none !important; /* Sin borde */
+}
+
+/* Modo oscuro para los controles del encabezado */
+body.dark-mode .goog-te-gadget-simple {
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Fondo semitransparente */
+  border-color: rgba(255, 255, 255, 0.1) !important; /* Borde semitransparente */
+}
+
+body.dark-mode .goog-te-gadget-simple:after {
+  color: var(--text-light) !important; /* Color de texto claro */
+}
+
+body.dark-mode .theme-toggle {
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+  color: var(--text-light); /* Color de texto claro */
+}
+
+/* ====================== CONTENIDO PRINCIPAL ====================== */
+/* Estilos para el contenido principal */
+main {
+  flex: 1; /* Ocupa espacio disponible */
+  padding: 20px; /* Espaciado interno */
+  max-width: 800px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado */
+  box-sizing: border-box; /* Modelo de caja */
+  width: 100%; /* Ancho completo */
+}
+
+/* ========================= FORMULARIO PRINCIPAL ================================ */
+/* Estilos para el formulario principal */
+
+#formulario {
+  background-color: #fff; /* Fondo blanco */
+  padding: 3rem; /* Espaciado interno */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  box-shadow: var(--shadow-lg); /* Sombra grande */
+  max-width: 550px; /* Ancho máximo */
+  margin: 2rem auto; /* Margen y centrado */
+  border: 1px solid #e0e0e0; /* Borde sutil */
+  box-sizing: border-box; /* Modelo de caja */
+  width: 100%; /* Ancho completo */
+  transition: var(--transition); /* Transición suave */
+}
+
+/* Título del formulario */
+#formulario h2 {
+  text-align: center; /* Texto centrado */
+  color: #9fc1e2; /* Color morado */
+  margin-bottom: 2rem; /* Margen inferior */
+  font-size: 2rem; /* Tamaño de fuente */
+  position: relative; /* Posicionamiento relativo */
+  padding-bottom: 0.75rem; /* Espaciado inferior */
+}
+
+/* Pseudoelemento decorativo para el título */
+#formulario h2::after {
+  content: ''; /* Contenido vacío */
+  position: absolute; /* Posicionamiento absoluto */
+  bottom: 0; /* Posición desde abajo */
+  left: 50%; /* Centrado horizontal */
+  transform: translateX(-50%); /* Centrado preciso */
+  width: 120px; /* Ancho fijo */
+  height: 4px; /* Altura fija */
+  background: linear-gradient(90deg, #3498db, var(--secondary-color)); /* Gradiente */
+  border-radius: 2px; /* Bordes redondeados */
+  transition: var(--transition); /* Transición suave */
+}
+
+/* Párrafos del formulario */
+#formulario form p {
+  margin-bottom: 1.75rem; /* Margen inferior */
+}
+
+/* Etiquetas del formulario */
+#formulario label {
+  display: block; /* Modelo de bloque */
+  margin-bottom: 0.6rem; /* Margen inferior */
+  font-weight: 500; /* Grosor de fuente */
+  color: #444; /* Color de texto */
+  font-size: 1rem; /* Tamaño de fuente */
+}
+
+/* Campos de entrada del formulario */
+#formulario input[type="text"],
+#formulario input[type="number"],
+#formulario input[type="tel"],
+#formulario input[type="email"],
+#formulario input[type="password"],
+#formulario select,
+#formulario textarea {
+  width: 100%; /* Ancho completo */
+  padding: 1rem; /* Espaciado interno */
+  border: 1px solid #ccc; /* Borde gris */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño de fuente */
+  transition: var(--transition); /* Transición suave */
+  display: block; /* Modelo de bloque */
+  margin: 0 auto; /* Centrado */
+  background-color: #f4f4f4; /* Fondo gris claro */
+  box-sizing: border-box; /* Modelo de caja */
+}
+
+/* Efecto focus para los campos */
+#formulario input:focus,
+#formulario select:focus,
+#formulario textarea:focus {
+  border-color: var(--secondary-color); /* Borde Azul */
+  box-shadow: 0 0 5px rgba(55, 215, 148, 0.3); /* Sombra verde */
+  outline: none; /* Sin contorno */
+  background-color: #fff; /* Fondo blanco */
+  transform: translateY(-2px); /* Efecto de levitación */
+}
+
+/* Área de texto */
+#formulario textarea {
+  min-height: 150px; /* Altura mínima */
+  resize: vertical; /* Redimensionamiento vertical */
+}
+
+/* Contenedor de botones del formulario */
+#formulario .form-buttons {
+  display: flex; /* Modelo flexible */
+  justify-content: center; /* Centrado horizontal */
+  gap: 1rem; /* Espacio entre elementos */
+  margin-top: 2rem; /* Margen superior */
+  flex-wrap: wrap; /* Permite envolver */
+}
+
+/* Botones del formulario */
+#formulario input[type="submit"],
+#formulario input[type="reset"] {
+  background-color: #1d0c6e; /* Fondo morado */
+  color: white; /* Texto blanco */
+  padding: 1rem 2rem; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: var(--border-radius); /* Bordes redondeados */
+  cursor: pointer; /* Cursor pointer */
+  font-size: 1.1rem; /* Tamaño de fuente */
+  font-weight: 500; /* Grosor de fuente */
+  transition: var(--transition); /* Transición suave */
+  min-width: 120px; /* Ancho mínimo */
+  text-align: center; /* Texto centrado */
+  box-shadow: var(--shadow-sm); /* Sombra pequeña */
+}
+
+/* Efecto hover para botones */
+#formulario input[type="submit"]:hover,
+#formulario input[type="reset"]:hover {
+  background-color: var(--secondary-color); /* Fondo verde */
+  transform: translateY(-3px) scale(1.05); /* Efecto de levitación y escala */
+  box-shadow: var(--shadow-md); /* Sombra media */
+}
+
+/* Estilo específico para el botón de reset */
+#formulario input[type="reset"] {
+  background-color: #f4f4f4; /* Fondo gris claro */
+  color: #333; /* Texto oscuro */
+  border: 1px solid #ccc; /* Borde gris */
+}
+
+#formulario input[type="reset"]:hover {
+  color: white; /* Texto blanco al hacer hover */
+}
+
+/* ====================== MODO OSCURO FORMULARIO ====================== */
+/* Estilos para el formulario en modo oscuro */
+
+body.dark-mode #formulario {
+  background-color: #2d2d2d; /* Fondo oscuro */
+  box-shadow: var(--shadow-lg); /* Sombra grande */
+  border-color: #444; /* Borde oscuro */
+}
+
+body.dark-mode #formulario h2 {
+  color: #9fc1e2; /* Texto claro */
+}
+
+body.dark-mode #formulario h2::after {
+  background: var(--secondary-color); /* Línea verde */
+}
+
+body.dark-mode #formulario label {
+  color: #e0e0e0; /* Texto claro */
+}
+
+/* Campos en modo oscuro */
+body.dark-mode #formulario input[type="text"],
+body.dark-mode #formulario input[type="number"],
+body.dark-mode #formulario input[type="tel"],
+body.dark-mode #formulario input[type="email"],
+body.dark-mode #formulario input[type="password"],
+body.dark-mode #formulario select,
+body.dark-mode #formulario textarea {
+  background-color: #3a3a3a; /* Fondo oscuro */
+  border-color: #555; /* Borde oscuro */
+  color: #e0e0e0; /* Texto claro */
+}
+
+/* Efecto focus en modo oscuro */
+body.dark-mode #formulario input:focus,
+body.dark-mode #formulario select:focus,
+body.dark-mode #formulario textarea:focus {
+  background-color: #333; /* Fondo más oscuro */
+  border-color: var(--secondary-color); /* Borde verde */
+  box-shadow: 0 0 0 3px rgba(55, 215, 148, 0.2); /* Sombra verde */
+}
+
+/* Enlaces en modo oscuro */
+body.dark-mode #formulario form p:has(input[type="checkbox"]) label a {
+  color: var(--secondary-color); /* Color verde */
+}
+
+body.dark-mode #formulario form p:has(input[type="checkbox"]) label a:hover {
+  color: #e0e0e0; /* Texto claro */
+}
+
+/* Botón de reset en modo oscuro */
+body.dark-mode #formulario input[type="reset"] {
+  background-color: #3a3a3a; /* Fondo oscuro */
+  color: #e0e0e0; /* Texto claro */
+  border-color: #555; /* Borde oscuro */
+}
+
+/* ====================== CHECKBOX TÉRMINOS ====================== */
+/* Estilos para el checkbox de términos */
+
+#formulario form p:has(input[type="checkbox"]) {
+  display: flex; /* Modelo flexible */
+  align-items: center; /* Centrado vertical */
+  gap: 10px; /* Espacio entre elementos */
+  margin-bottom: 15px; /* Margen inferior */
+}
+
+/* Etiqueta del checkbox */
+#formulario form p:has(input[type="checkbox"]) label {
+  display: inline; /* Modelo inline */
+  margin-bottom: 0; /* Sin margen inferior */
+  font-weight: normal; /* Grosor normal */
+}
+
+/* Enlace en la etiqueta del checkbox */
+#formulario form p:has(input[type="checkbox"]) label a {
+  color: #1d0c6e; /* Color morado */
+  text-decoration: none; /* Sin subrayado */
+  transition: var(--transition); /* Transición suave */
+}
+
+/* Efecto hover para el enlace */
+#formulario form p:has(input[type="checkbox"]) label a:hover {
+  color: var(--secondary-color); /* Color verde */
+  text-decoration: underline; /* Subrayado */
+}
+
+/* ====================== FOOTER PREMIUM CON LÍNEA VERDE SUPERIOR ====================== */
+/* Estilos para el pie de página */
+
+.footer {
+  background: linear-gradient(145deg, var(--dark-color), var(--darker-color)); /* Gradiente azul */
+  color: var(--text-light); /* Texto claro */
+  padding: 3rem 0 2rem; /* Espaciado interno */
+  margin-top: 4rem; /* Margen superior */
+  position: relative; /* Posicionamiento relativo */
+  width: 100%; /* Ancho completo */
+  box-sizing: border-box; /* Modelo de caja */
+  border-top: 3px solid var(--secondary-color); /* Borde superior verde */
+}
+
+/* 
+ * Pseudoelemento que crea una línea gradiente decorativa encima del footer
+ * Usa el mismo gradiente horizontal azul (#3498db) a verde (#2ecc71) que el header
+ * pero colocada en la parte superior del footer en lugar de la inferior
+ */
+.footer::before {
+  content: '';                    /* Contenido vacío necesario para pseudoelementos */
+  position: absolute;             /* Posicionamiento absoluto respecto al footer */
+  top: 0;                         /* Alineado en la parte superior del footer */
+  left: 0;                        /* Comienza desde el borde izquierdo */
+  width: 100%;                    /* Ocupa todo el ancho del footer */
+  height: 3px;                    /* Grosor de la línea (igual que en el header) */
+  background: linear-gradient(90deg, #3498db, #2ecc71); /* Mismo gradiente azul-verde */
+  background-size: 200% auto;      /* Tamaño extendido para la animación */
+  z-index: 1;                     /* Mismo nivel de apilamiento que en el header */
+  animation: gradientFlow 8s ease infinite alternate; /* Aplicamos la animación */  /* Degradado */
+}
+
+/* Grid para las columnas del footer */
+.footer__grid {
+  display: grid; /* Modelo grid */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+  gap: 2rem; /* Espacio entre elementos */
+  max-width: 1200px; /* Ancho máximo */
+  margin: 0 auto; /* Centrado */
+  padding: 2rem; /* Espaciado interno */
+}
+
+/* Títulos de las columnas */
+.footer__col h4 {
+  font-size: 1.1rem; /* Tamaño de fuente */
+  margin-bottom: 1rem; /* Margen inferior */
+  position: relative; /* Posicionamiento relativo */
+  display: inline-block; /* Modelo inline-block */
+}
+
+/* Pseudoelemento decorativo para títulos */
+.footer__col h4::after {
+  content: ''; /* Contenido vacío */
+  position: absolute; /* Posicionamiento absoluto */
+  bottom: -5px; /* Posición desde abajo */
+  left: 0; /* Posición desde la izquierda */
+  width: 30px; /* Ancho fijo */
+  height: 2px; /* Altura fija */
+  background: var(--secondary-color); /* Color verde */
+}
+
+/* Lista de enlaces en el footer */
+.footer__links {
+    list-style: none;                /* Elimina marcadores de lista */
+}
+
+/* Elementos de la lista de enlaces */
+.footer__link {
+    margin-bottom: 0.8rem;           /* Espacio entre enlaces */
+}
+
+/* Estilo para los enlaces */
+.footer__link a {
+    color: rgba(255, 255, 255, 0.8); /* Blanco semi-transparente */
+    text-decoration: none;           /* Sin subrayado */
+    transition: var(--transition);   /* Transición suave */
+    display: flex;                   /* Usa flexbox */
+    align-items: center;             /* Centra verticalmente */
+    gap: 0.8rem;                     /* Espacio entre icono y texto */
+}
+
+/* Efecto hover para enlaces */
+.footer__link a:hover {
+    color: var(--text-light);        /* Blanco completo */
+    transform: translateX(5px);      /* Desplaza ligeramente a la derecha */
+}
+
+/* Estilo para iconos en enlaces */
+.footer__link i {
+    width: 20px;                     /* Anchura fija */
+    text-align: center;              /* Centra el icono */
+}
+
+/* Contenedor para enlaces sociales */
+.footer__social {
+    display: flex;                   /* Usa flexbox */
+    gap: 1rem;                       /* Espacio entre iconos */
+    margin-top: 1.5rem;              /* Espacio superior */
+    flex-wrap: wrap;                 /* Permite envolver en múltiples líneas */
+}
+
+/* Iconos de redes sociales */
+.footer__social-link {
+    display: flex;                   /* Usa flexbox */
+    align-items: center;             /* Centra verticalmente */
+    justify-content: center;         /* Centra horizontalmente */
+    width: 40px;                     /* Ancho fijo */
+    height: 40px;                    /* Alto fijo (cuadrado) */
+    border-radius: 50%;              /* Forma circular */
+    background-color: rgba(255, 255, 255, 0.1);  /* Fondo semi-transparente */
+    color: var(--text-light);        /* Color de texto claro */
+    transition: var(--transition);   /* Transición suave */
+    font-size: 1.2rem;               /* Tamaño del icono */
+}
+
+/* Efecto hover para iconos sociales */
+.footer__social-link:hover {
+    background-color: #3498db;  /* Cambia a color primario */
+    transform: translateY(-3px);     /* Eleva ligeramente */
+}
+
+/* Estilo especial para el icono de Infojobs */
+.icon-infojobs {
+    font-style: normal;              /* Anula cursiva */
+    font-weight: bold;               /* Negrita */
+    font-size: 0.9rem;               /* Tamaño más pequeño */
+}
+
+/* Sección inferior del footer con copyright */
+.footer__bottom {
+    text-align: center;              /* Centra el texto */
+    padding-top: 3rem;               /* Espacio superior */
+    margin-top: 3rem;                /* Margen superior */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);  /* Línea divisoria */
+    color: rgba(255, 255, 255, 0.7); /* Texto semi-transparente */
+    font-size: 0.9rem;               /* Tamaño pequeño */
+}
+
+/*
+ * Modo oscuro para el traductor
+ * Ajustes de color para el tema oscuro
+ */
+body.dark-mode .goog-te-gadget-simple {
+  background-color: rgba(255, 255, 255, 0.1) !important; /* Fondo semitransparente */
+  border-color: rgba(255, 255, 255, 0.1) !important; /* Borde semitransparente */
+}
+
+body.dark-mode .goog-te-gadget-simple:after {
+  color: var(--text-light) !important; /* Color de texto claro */
+}
+
+/* ====================== MEDIA QUERIES ====================== */
+/* Consultas de medios para diseño responsivo en diferentes tamaños de pantalla */
+
+/* Pantallas hasta 768px de ancho (tablets y móviles grandes) */
+@media (max-width: 768px) {
+  /* Ajustes para los controles del encabezado */
+  .header__controls {
+    top: 0.75rem; /* Posición más cercana al borde */
+    right: 0.75rem; /* Posición más cercana al borde */
+    gap: 0.5rem; /* Menor espacio entre elementos */
+  }
+  
+  /* Reducción de tamaño del botón de tema */
+  .theme-toggle {
+    width: 28px; /* Ancho reducido */
+    height: 28px; /* Alto reducido */
+    font-size: 0.8rem; /* Tamaño de fuente reducido */
+  }
+  
+  /* Ajustes para el widget de Google Translate */
+  .goog-te-gadget-simple {
+    padding: 4px !important; /* Menor padding */
+  }
+  
+  /* Tamaño de fuente reducido para el texto del widget */
+  .goog-te-gadget-simple:after {
+    font-size: 0.75rem !important; /* Fuente más pequeña */
+  }
+  
+  /* Navegación responsive */
+  .nav__list {
+    gap: 0.75rem; /* Menor espacio entre elementos de navegación */
+  }
+  
+  /* Ajustes para los enlaces de navegación */
+  .nav__link {
+    font-size: 0.9rem; /* Fuente más pequeña */
+    padding: 0.4rem 0.8rem; /* Padding reducido */
+  }
+  
+  /* Ajustes para el formulario */
+  #formulario {
+    padding: 1.5rem; /* Padding reducido */
+  }
+
+  /* Ajustes para el contenido principal */
+  main {
+    padding: 10px; /* Padding reducido */
+  }
+
+  /* Ajustes para los botones del formulario */
+  #formulario input[type="submit"],
+  #formulario input[type="reset"] {
+    width: calc(50% - 0.5rem); /* Ancho calculado para dos columnas */
+    min-width: auto; /* Sin ancho mínimo */
+    padding: 0.8rem 1rem; /* Padding reducido */
+    font-size: 1rem; /* Tamaño de fuente estándar */
+  }
+
+  /* Altura reducida para el textarea */
+  #formulario textarea {
+    min-height: 120px; /* Altura mínima reducida */
+  }
+}
+
+/* Pantallas hasta 480px de ancho (móviles pequeños) */
+@media (max-width: 480px) {
+  /* Ajustes más extremos para controles del encabezado */
+  .header__controls {
+    top: 0.6rem; /* Posición aún más cercana al borde */
+    right: 0.6rem; /* Posición aún más cercana al borde */
+    gap: 0.4rem; /* Espacio mínimo entre elementos */
+  }
+  
+  /* Reducción extrema del botón de tema */
+  .theme-toggle {
+    width: 26px; /* Ancho muy reducido */
+    height: 26px; /* Alto muy reducido */
+    font-size: 0.75rem; /* Fuente muy pequeña */
+  }
+  
+  /* Widget de Google Translate muy compacto */
+  .goog-te-gadget-simple {
+    padding: 3px !important; /* Padding mínimo */
+  }
+  
+  /* Texto del widget extremadamente pequeño */
+  .goog-te-gadget-simple:after {
+    font-size: 0.7rem !important; /* Fuente mínima */
+  }
+  
+  /* Navegación ultra compacta */
+  .nav__list {
+    gap: 0.5rem; /* Espacio mínimo entre elementos */
+  }
+  
+  /* Enlaces de navegación muy pequeños */
+  .nav__link {
+    font-size: 0.85rem; /* Fuente muy pequeña */
+    padding: 0.3rem 0.7rem; /* Padding mínimo */
+  }
+}
+
+/* Rango específico entre 340px y 490px (móviles pequeños-medianos) */
+@media (min-width: 340px) and (max-width: 490px) {
+  /* Ajustes para el encabezado */
+  .header {
+    padding: 1.5rem 0.8rem; /* Padding reducido */
+  }
+
+  /* Tamaño de título reducido */
+  .header__title {
+    font-size: 1.8rem; /* Fuente más pequeña */
+  }
+
+  /* Formulario más compacto */
+  #formulario {
+    padding: 1.25rem; /* Padding reducido */
+    margin: 1rem auto; /* Margen reducido */
+  }
+
+  /* Título del formulario más pequeño */
+  #formulario h2 {
+    font-size: 1.4rem; /* Fuente reducida */
+    margin-bottom: 1.5rem; /* Margen inferior ajustado */
+  }
+
+  /* Línea decorativa del título más corta */
+  #formulario h2::after {
+    width: 80px; /* Ancho reducido */
+  }
+
+  /* Etiquetas más pequeñas */
+  #formulario label {
+    font-size: 0.9rem; /* Fuente reducida */
+    margin-bottom: 0.4rem; /* Margen inferior reducido */
+  }
+
+  /* Párrafos con menos margen */
+  #formulario form p {
+    margin-bottom: 1.25rem; /* Margen inferior reducido */
+  }
+
+  /* Campos de entrada más compactos */
+  #formulario input[type="text"],
+  #formulario input[type="number"],
+  #formulario input[type="tel"],
+  #formulario input[type="email"],
+  #formulario input[type="password"],
+  #formulario select,
+  #formulario textarea {
+    padding: 0.75rem; /* Padding reducido */
+    font-size: 0.9rem; /* Fuente más pequeña */
+    border-radius: 8px; /* Bordes ligeramente menos redondeados */
+  }
+
+  /* Botones del formulario en columna */
+  #formulario .form-buttons {
+    margin-top: 1.5rem; /* Margen superior reducido */
+    gap: 0.75rem; /* Espacio reducido */
+  }
+
+  /* Botones a ancho completo */
+  #formulario input[type="submit"],
+  #formulario input[type="reset"] {
+    padding: 0.75rem 1rem; /* Padding reducido */
+    font-size: 0.95rem; /* Fuente ligeramente reducida */
+    width: 100%; /* Ancho completo */
+    margin-bottom: 0.5rem; /* Margen inferior entre botones */
+  }
+}
+
+/* Rango específico entre 491px y 640px (móviles grandes/tablets pequeñas) */
+@media (min-width: 491px) and (max-width: 640px) {
+  /* Encabezado con padding ajustado */
+  .header {
+    padding: 2rem 1rem; /* Padding ligeramente mayor */
+  }
+
+  /* Formulario con más espacio */
+  #formulario {
+    padding: 1.5rem; /* Padding estándar */
+    margin: 1.5rem auto; /* Margen estándar */
+  }
+
+  /* Título del formulario más grande */
+  #formulario h2 {
+    font-size: 1.6rem; /* Fuente ligeramente mayor */
+  }
+
+  /* Campos de entrada con más padding */
+  #formulario input[type="text"],
+  #formulario input[type="number"],
+  #formulario input[type="tel"],
+  #formulario input[type="email"],
+  #formulario input[type="password"],
+  #formulario select,
+  #formulario textarea {
+    padding: 0.85rem; /* Padding ligeramente mayor */
+    font-size: 0.95rem; /* Fuente casi estándar */
+  }
+
+  /* Botones en dos columnas */
+  #formulario input[type="submit"],
+  #formulario input[type="reset"] {
+    width: calc(50% - 0.5rem); /* Ancho para dos columnas */
+  }
+}
+
+/* Rango específico entre 641px y 768px (tablets medianas) */
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Encabezado con mayor padding */
+  .header {
+    padding: 2.2rem 1rem; /* Padding generoso */
+  }
+
+  /* Formulario con más espacio interno */
+  #formulario {
+    padding: 2rem; /* Padding mayor */
+    margin: 1.75rem auto; /* Margen mayor */
+  }
+
+  /* Título del formulario más grande */
+  #formulario h2 {
+    font-size: 1.75rem; /* Fuente grande */
+  }
+
+  /* Campos de entrada con tamaño estándar */
+  #formulario input[type="text"],
+  #formulario input[type="number"],
+  #formulario input[type="tel"],
+  #formulario input[type="email"],
+  #formulario input[type="password"],
+  #formulario select,
+  #formulario textarea {
+    padding: 0.9rem; /* Padding casi estándar */
+    font-size: 1rem; /* Fuente estándar */
+  }
+
+  /* Botones con ancho automático pero mínimo */
+  #formulario input[type="submit"],
+  #formulario input[type="reset"] {
+    width: auto; /* Ancho según contenido */
+    min-width: 150px; /* Ancho mínimo */
+  }
+}
+
+/* Rango específico entre 769px y 1024px (tablets grandes/pequeñas laptops) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Encabezado con padding generoso */
+  .header {
+    padding: 2.5rem 1rem; /* Padding muy generoso */
+  }
+
+  /* Formulario con ancho máximo aumentado */
+  #formulario {
+    max-width: 650px; /* Ancho mayor */
+  }
+}
+
+/* Rango específico entre 1025px y 1280px (laptops estándar) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  /* Formulario aún más ancho */
+  #formulario {
+    max-width: 700px; /* Ancho máximo aumentado */
+  }
+}
+
+/* Rango específico entre 1281px y 1600px (monitores medianos) */
+@media (min-width: 1281px) and (max-width: 1600px) {
+  /* Formulario muy ancho */
+  #formulario {
+    max-width: 750px; /* Ancho máximo grande */
+  }
+}
+
+/* Pantallas mayores a 1601px (monitores grandes y TVs) */
+@media (min-width: 1601px) {
+  /* Contenido principal muy ancho */
+  main {
+    max-width: 900px; /* Ancho máximo muy grande */
+  }
+
+  /* Formulario extra ancho */
+  #formulario {
+    max-width: 800px; /* Ancho máximo extra grande */
+  }
+}

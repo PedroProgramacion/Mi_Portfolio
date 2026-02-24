@@ -1,0 +1,207 @@
+<!DOCTYPE html> <!-- Declaración del tipo de documento: HTML5 -->
+<html lang="es"> <!-- Elemento raíz del documento, indicando idioma español -->
+<head>
+     <!-- Metadatos básicos -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración responsive -->
+    <meta name="description" content="Portafolio profesional de Pedro Ortiz Plaza, especialista en administración y desarrollo de sistemas informáticos"> <!-- Descripción para motores de búsqueda -->
+    <meta name="author" content="Pedro Ortiz Plaza"> <!-- Autor del sitio -->
+    <meta name="keywords" content="desarrollo web, programación, sistemas informáticos, Pedro Ortiz, administración, CEAT"> <!-- Palabras clave para SEO -->
+    <meta name="robots" content="index, follow"> <!-- Instrucciones para bots de búsqueda -->
+    <meta name="language" content="Spanish"> <!-- Idioma del contenido -->
+    <meta name="generator" content="HTML5"> <!-- Tecnología usada para generar el sitio -->
+    <meta name="revisit-after" content="7 days"> <!-- Frecuencia sugerida para rastreo -->
+    <meta name="distribution" content="global"> <!-- Ámbito de distribución -->
+    <meta name="rating" content="general"> <!-- Clasificación de contenido -->
+    
+    <!-- Metadatos para compartir en redes sociales - Open Graph (Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pedro Ortiz - MIS CONTACTOS">
+    <meta property="og:description" content="Portafolio profesional de Pedro Ortiz Plaza, especialista en administración y desarrollo de sistemas informáticos">
+    <meta property="og:url" content="https://www.pedroortiz.com/pages/Contacto.html">
+    <meta property="og:image" content="../MULTIMEDIA/IMGS/PerfilCurriculumPedro.png">
+    
+    <!-- Metadatos para compartir en Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Pedro Ortiz - MIS CONTACTOS">
+    <meta property="twitter:description" content="Portafolio profesional de Pedro Ortiz Plaza, especialista en administración y desarrollo de sistemas informáticos">
+    <meta property="twitter:image" content="../MULTIMEDIA/IMGS/PerfilCurriculumPedro.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!--Enlace de la hoja de estilos css externa;-->
+    <link rel="stylesheet" href="../CSS/estiloscontactos.css">
+     
+    <!--Enlace del icono de la pagina-->
+    <link rel="icon" href="../MULTIMEDIA/IMGS/icono.jpg">
+     
+    <!--Titulo-->
+    <title>Formulario de Contacto</title>
+</head>
+<body>
+    <!-- Cuerpo del documento HTML: todo el contenido visible de la página -->
+
+    <!-- ENCABEZADO MEJORADO -->
+    <header class="header">
+        <!-- Contenedor para controles (traductor y tema oscuro) -->
+        <div class="header__controls">
+            <!-- Contenedor del traductor de Google -->
+            <div id="google_translate_element"></div>
+            
+            <!-- Botón para alternar modo oscuro/claro -->
+            <button id="dark-mode-toggle" class="theme-toggle">☀️</button>
+        </div>
+        
+        <!-- Barra de navegación principal -->
+        <nav class="header__nav">
+            <ul class="nav__list">
+                <!-- Elementos del menú de navegación -->
+                <li><a href="../index.html" class="nav__link">Inicio</a></li>
+                <li><a href="./Proyectos.html" class="nav__link">Proyectos</a></li>
+                <li><a href="./SobreMi.html" class="nav__link">Sobre mí</a></li>
+                <li><a href="./Contacto.html" class="nav__link">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Contenido principal del encabezado -->
+        <div class="header__content">
+            <h1 class="header__title">Contacto</h1>
+            <p class="header__subtitle">Diseño y desarrollo soluciones digitales que marcan la diferencia</p>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL (MAIN) -->
+    <main>
+        <!-- Sección del formulario de contacto -->
+        <section id="formulario">
+            <h2>Formulario de Contacto</h2>
+            
+            <!-- Formulario con método GET y autocompletado activado -->
+            <form action="./Formulario.html" method="GET" autocomplete="on">
+                
+                <!-- Campo para el nombre -->
+                <p>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" required>
+                </p>
+
+                <!-- Campo para el teléfono -->
+                <p>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" name="telefono" id="telefono" placeholder="Ingrese su teléfono" required>
+                </p>
+
+                <!-- Campo para el email -->
+                <p>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Ingrese su email" required>
+                </p>
+
+                <!-- Selector de motivo de contacto -->
+                <p>
+                    <label for="motivo">Motivo:</label>
+                    <select name="motivo" id="motivo" required>
+                        <option value="consulta">Consulta</option>
+                        <option value="reclamacion">Reclamación</option>
+                        <option value="sugerencia">Sugerencia</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </p>
+
+                <!-- Área de texto para comentarios -->
+                <p>
+                    <label for="comentarios">Comentarios:</label>
+                    <textarea name="comentarios" id="comentarios" cols="30" rows="10" required></textarea>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <!-- ASIDE - Contenido secundario relacionado -->
+    <aside>
+        
+    </aside>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+        <!-- Grid para organizar las columnas del footer -->
+        <div class="footer__grid">
+            <!-- Columna de redes sociales -->
+            <div class="footer__col">
+                <h4>Redes Sociales</h4>
+                <p style="color: rgba(255,255,255,0.7); margin-top: 1rem;">
+                    Aquí podrás encontrar mis redes sociales
+                </p>
+                <!-- Contenedor de iconos de redes sociales -->
+                <div class="footer__social">
+                    <!-- Enlace a GitHub -->
+                    <a href="https://github.com/PedroProgramacion" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <!-- Enlace a LinkedIn -->
+                    <a href="https://www.linkedin.com/feed/" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <!-- Enlace a InfoJobs -->
+                    <a href="https://www.infojobs.net/candidate/my-infojobs.xhtml?dgv=7202779601101142697" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="icon-infojobs">IJ</i>
+                    </a>
+                    <!-- Enlace a Facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=61573096651989" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <!-- Enlace a Instagram -->
+                    <a href="https://www.instagram.com/pedro_profesional?igsh=bXdheWNzZnUydXNk" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Columna de enlaces internos -->
+            <div class="footer__col">
+                <h4>Enlaces</h4>
+                <ul class="footer__links">
+                    <li class="footer__link"><a href="../index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li class="footer__link"><a href="./Proyectos.html"><i class="fas fa-chevron-right"></i> Proyectos</a></li>
+                    <li class="footer__link"><a href="./SobreMi.html"><i class="fas fa-chevron-right"></i> Sobre mí</a></li>
+                    <li class="footer__link"><a href="./Contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna de información de contacto -->
+            <div class="footer__col">
+                <h4>Contacto</h4>
+                <ul class="footer__links">
+                    <li class="footer__link"><a href="mailto:ortizplazapedro5@gmail.com"><i class="fas fa-envelope"></i> ortizplazapedro5@gmail.com</a></li>
+                    <li class="footer__link"><a href="tel:+34678021476"><i class="fas fa-phone"></i> +34 678 021 476</a></li>
+                    <li class="footer__link"><a href="#"><i class="fas fa-map-marker-alt"></i> CLM (Castilla-La-Mancha), España</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Sección inferior del footer con copyright -->
+        <div class="footer__bottom">
+            <p>&copy; 2025 Mis proyectos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script de Google Translate -->
+    <script>
+        // Función de inicialización del traductor de Google
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'es'},  // Idioma de la página
+                'google_translate_element'  // ID del elemento contenedor
+            );
+        }
+    </script>
+    <!-- Carga el script de Google Translate -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Contenedor del Traductor de Google (alternativo) -->
+    <div id="google_translate_element" class="google-translate-btn"></div>
+    
+    <!-- Script externo para funcionalidades adicionales (modo oscuro, etc.) -->
+    <script src="../JS/contacto.js"></script>
+</body>
+</html>

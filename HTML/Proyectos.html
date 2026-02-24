@@ -1,0 +1,271 @@
+<!DOCTYPE html> <!-- Declaración del tipo de documento: HTML5 -->
+<html lang="es"> <!-- Elemento raíz del documento, indicando idioma español -->
+<head>
+    <!-- Metadatos básicos -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración responsive -->
+    <meta name="description" content="Portafolio profesional de Pedro Ortiz Plaza, especialista en administración y desarrollo de sistemas informáticos"> <!-- Descripción para motores de búsqueda -->
+    <meta name="author" content="Pedro Ortiz Plaza"> <!-- Autor del sitio -->
+    <meta name="keywords" content="desarrollo web, programación, sistemas informáticos, Pedro Ortiz, administración, CEAT"> <!-- Palabras clave para SEO -->
+    <meta name="robots" content="index, follow"> <!-- Instrucciones para bots de búsqueda -->
+    <meta name="language" content="Spanish"> <!-- Idioma del contenido -->
+    <meta name="generator" content="HTML5"> <!-- Tecnología usada para generar el sitio -->
+    <meta name="revisit-after" content="7 days"> <!-- Frecuencia sugerida para rastreo -->
+    <meta name="distribution" content="global"> <!-- Ámbito de distribución -->
+    <meta name="rating" content="general"> <!-- Clasificación de contenido -->
+    
+    <!-- Metadatos para compartir en redes sociales - Open Graph (Facebook) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pedro Ortiz - MIS PROYECTOS">
+    <meta property="og:description" content="Portafolio profesional de Pedro Ortiz Plaza, especialista en administración y desarrollo de sistemas informáticos">
+    <meta property="og:url" content="https://www.pedroortiz.com/pages/Proyectos.html">
+    <meta property="og:image" content="../MULTIMEDIA/IMGS/PerfilCurriculumPedro.png">
+    
+    <!-- Metadatos para compartir en Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Pedro Ortiz - MIS PROYECTOS">
+    <meta property="twitter:description" content="Portafolio profesional de Pedro Ortiz Plaza, especialista en administración y desarrollo de sistemas informáticos">
+    <meta property="twitter:image" content="../MULTIMEDIA/IMGS/PerfilCurriculumPedro.png">
+    
+    <!-- Favicon - Icono que aparece en la pestaña del navegador -->
+    <link rel="icon" sizes="16x16 32x32 48x48" type="image/jpg" href="../MULTIMEDIA/IMGS/icono.jpg">
+    
+    <!-- Fuente Poppins desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="../CSS/estilosproyectos.css"> <!-- Hoja de estilos activa -->
+
+    <!-- Icono de la pestaña del navegador -->
+    <link rel="icon" href="../MULTIMEDIA/IMGS/icono.jpg">
+
+    <!-- Título de la página mostrado en la pestaña del navegador -->
+    <title>Mis Proyectos</title>
+
+</head>
+
+<body>
+    <!-- Encabezado principal con animación -->
+    <header class="header fade-in">
+        <div class="header__content">
+            <h1 class="header__title">Proyectos</h1> <!-- Título principal -->
+            <p class="header__subtitle">Diseño y desarrollo soluciones digitales que marcan la diferencia</p> <!-- Subtítulo -->
+        </div>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar fade-in delay-1">
+        <div class="navbar__container">
+            <!-- Logo del sitio -->
+            <a href="#" class="navbar__logo">
+                <span class="navbar__logo-icon">&lt;/&gt;</span> Proyectos
+            </a>
+
+            <!-- Botón para menú móvil -->
+            <button class="navbar__mobile-toggle" aria-label="Menú de navegación">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Menú de navegación -->
+            <ul class="navbar__menu">
+                <li><a href="../index.html" class="navbar__link">Inicio</a></li>
+                <li><a href="./SobreMi.html" class="navbar__link">Sobre mí</a></li>
+                <li><a href="./Proyectos.html" class="navbar__link">Proyectos</a></li>
+                <li><a href="./Contacto.html" class="navbar__link">Contacto</a></li>
+                <li>
+                    <!-- Botón de descarga de CV -->
+                    <!-- Botón de descarga de CV - Versión corregida -->
+                    <a href="../DOCS/CurrículumVitae-Pedro.pdf" id="download-cv" class="navbar__cta" download="CV_Pedro_Ortiz_Plaza.pdf"target="_blank">
+                        <i class="fas fa-download"></i> Descargar CVL PDF
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Controles de usuario: traducción y tema -->
+            <div class="navbar__controls">
+                <div id="google_translate_element" class="navbar__translate"></div> <!-- Traducción -->
+                <button id="theme-toggle" class="navbar__theme-toggle"> <!-- Botón para alternar tema -->
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main">
+        <section id="proyectos" class="fade-in delay-2">
+            <div class="section-title">
+                <h2>Mis Proyectos Recientes</h2>
+            </div>
+
+            <!-- Contenedor de proyectos -->
+            <div class="projects-grid">
+
+                <!-- Proyecto 1 -->
+                <article class="project-card">
+                    <span class="project-card__badge">Nuevo</span> <!-- Etiqueta del proyecto -->
+                    <img src="../MULTIMEDIA/IMGS/portfolio.jpeg" alt="Proyecto 1" class="project-card__image"> <!-- Imagen -->
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Mi Portfolio</h3>
+                        <p class="project-card__description">Aqui encontraras la forma de como contactarme ,mis proyectos realizados e informacion sobre mi.</p>
+
+                        <div class="project-card__tags">
+                            <span class="project-card__tag">HTML</span>
+                            <span class="project-card__tag">CSS</span>
+                            <span class="project-card__tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-card__links">
+                            <a href="https://pedroprogramacion.github.io/Mi_Portfolio/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-eye"></i> Demo
+                            </a>
+                            <a href="https://github.com/PedroProgramacion/Mi_Portfolio/blob/main/index.html" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-code"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 2 -->
+                <article class="project-card">
+                    <span class="project-card__badge">Nuevo</span>
+                    <img src="../MULTIMEDIA/IMGS/cv.avif" alt="Proyecto 2" class="project-card__image">
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">CURRICULUM VITAE (CV)</h3>
+                        <p class="project-card__description">Aqui encontraras informacion masdetallada sobre mi trayectoria formativa y profesional.</p>
+
+                        <div class="project-card__tags">
+                            <span class="project-card__tag">HTML</span>
+                            <span class="project-card__tag">CSS</span>
+                            <span class="project-card__tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-card__links">
+                            <a href="https://pedroprogramacion.github.io/---CURRICULUM-VITAE--CV----/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-eye"></i> Demo
+                            </a>
+                            <a href="https://github.com/PedroProgramacion/---CURRICULUM-VITAE--CV----/blob/main/index.html" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-code"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 3 -->
+                <article class="project-card">
+                    <span class="project-card__badge">Nuevo </span> <!-- Etiqueta del proyecto -->
+                    <img src="../MULTIMEDIA/IMGS/Calculadora.png" alt="Proyecto 3" class="project-card__image" target="_blank">
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Calculadora</h3>
+                        <p class="project-card__description">Claculadora donde el usuario odra realizar operaciones matematicas basicas</p>
+
+                        <div class="project-card__tags">
+                            <span class="project-card__tag">HTML</span>
+                            <span class="project-card__tag">CSS</span>
+                            <span class="project-card__tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-card__links">
+                            <a href="https://pedroprogramacion.github.io/Calculadora/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-eye"></i> Demo
+                            </a>
+                            <a href="https://github.com/PedroProgramacion/Calculadora/blob/main/index.html" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-code"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 4 -->
+                <article class="project-card">
+                    <span class="project-card__badge">"" </span> <!-- Parece un error, puede eliminarse -->
+                    <img src="../../WEB-CONTENIDO AUDIOVISUAL/index.html" alt="Proyecto 4" class="project-card__image">
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">Web Contenido Audio Visual (Streaming)</h3>
+                        <p class="project-card__description">Plataforma de entretenimento de series y peliculas y donde tambien podras escuchar todo tipo de musica.</p>
+
+                        <div class="project-card__tags">
+                            <span class="project-card__tag">HTML</span>
+                            <span class="project-card__tag">CSS</span>
+                            <span class="project-card__tag">JavaScript</span>
+                        </div>
+
+                        <div class="project-card__links">
+                            <a href="../../" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-eye"></i> Demo
+                            </a>
+                            <a href="#" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-code"></i> Código
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="footer__grid">
+
+            <!-- Columna redes sociales -->
+            <div class="footer__col">
+                <h4>Redes Sociales</h4>
+                <p style="color: rgba(255,255,255,0.7); margin-top: 1rem;">
+                    Aquí podrás encontrar mis redes sociales
+                </p>
+                <div class="footer__social">
+                    <a href="https://github.com/PedroProgramacion" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/feed/" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.infojobs.net/candidate/my-infojobs.xhtml?dgv=7202779601101142697" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="icon-infojobs">IJ</i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61573096651989" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/pedro_profesional?igsh=bXdheWNzZnUydXNk" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna enlaces -->
+            <div class="footer__col">
+                <h4>Enlaces</h4>
+                <ul class="footer__links">
+                    <li class="footer__link"><a href="../index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li class="footer__link"><a href="./Proyectos.html"><i class="fas fa-chevron-right"></i> Proyectos</a></li>
+                    <li class="footer__link"><a href="./SobreMi.html"><i class="fas fa-chevron-right"></i> Sobre mí</a></li>
+                    <li class="footer__link"><a href="./Contacto.html"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna contacto -->
+            <div class="footer__col">
+                <h4>Contacto</h4>
+                <ul class="footer__links">
+                    <li class="footer__link"><a href="mailto:ortizplazapedro5@gmail.com"><i class="fas fa-envelope"></i> ortizplazapedro5@gmail.com</a></li>
+                    <li class="footer__link"><a href="tel:+34678021476"><i class="fas fa-phone"></i> +34 678 021 476</a></li>
+                    <li class="footer__link"><a href="#"><i class="fas fa-map-marker-alt"></i> CLM (Castilla-La-Mancha), España</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Parte inferior del footer -->
+        <div class="footer__bottom">
+            <p>&copy; 2025 Mis proyectos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script de funcionalidades JS -->
+    <script src="../JS/proyectos.js"></script>
+</body>
+</html>
